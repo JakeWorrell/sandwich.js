@@ -1,4 +1,4 @@
-require('./lib/sandwich.js');
+
 
 switch (process.argv[2]) {
 	case '-build':
@@ -10,6 +10,7 @@ switch (process.argv[2]) {
 				if (err != null){
 					console.log(err);
 				} else {
+					sandwich = require('./lib/sandwich.lib.js');
 					require(path);
 				}
 			});
