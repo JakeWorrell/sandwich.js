@@ -2,8 +2,8 @@
 
 switch (process.argv[2]) {
 	case '-build':
-		if (process.argv[3] ==undefined) {
-			console.log('you need to provide an input file, charles')
+		if (process.argv[3] == undefined) {
+			console.log('you need to provide an input file')
 		} else {
 			var path = require('path');
 			var fs = require('fs');
@@ -13,7 +13,8 @@ switch (process.argv[2]) {
 				} else {
 					sandwich = require('./lib/sandwich.lib.js');
 					require(p);
-					sandwich.getJs(path.dirname(p));
+					var output = sandwich.getJs(path.dirname(p));
+					console.log(output);
 				}
 			});
 		}
