@@ -5,13 +5,15 @@ switch (process.argv[2]) {
 		if (process.argv[3] ==undefined) {
 			console.log('you need to provide an input file, charles')
 		} else {
+			var path = require('path');
 			var fs = require('fs');
-			fs.realpath(process.argv[3],function(err,path){
+			fs.realpath(process.argv[3],function(err,p){
 				if (err != null){
 					console.log(err);
 				} else {
 					sandwich = require('./lib/sandwich.lib.js');
-					require(path);
+					require(p);
+					sandwich.getJs(path.dirname(p));
 				}
 			});
 		}

@@ -1,1 +1,3 @@
-sandwich.js('this.js','that.js');
+sandwich
+  .js('js/this.js')
+  .js('js/that.js');
