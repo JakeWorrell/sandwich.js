@@ -1,14 +1,22 @@
 function sandwich(){};
 sandwich.jsFiles = Array();
+sandwich.cssFiles = Array();
 
-sandwich.js = function(script) {
-	this.jsFiles.push(script);
+sandwich.js = function(path) {
+	this.jsFiles.push(path);
 	if (typeof module == 'undefined') {
-		document.write('<script src="', script , '" type="text/javascript"><\/script>');
+		document.write('<script src="', path , '" type="text/javascript"><\/script>');
 	}
 	return this;
 }
 
+sandwich.css = function(path) {
+	this.jsFiles.push(path);
+	if (typeof module == 'undefined') {
+		document.write('<link rel="stylesheet" href="', path , '" type="text/css" charset="utf-8">');
+	}
+	return this;
+}
 
 if (typeof process !== 'undefined') { /* running through node.js */
 
